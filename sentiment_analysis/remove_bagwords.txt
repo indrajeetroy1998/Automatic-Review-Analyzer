@@ -1,0 +1,10 @@
+f = open("C:\\Users\\indra\\Desktop\\sentiment_analysis\\stopwords.txt", "r")
+    stop_word_list = f.read().split('\n')
+    # print(stop_word_list)
+    dictionary = {} # maps word to unique index
+    for text in texts:
+        word_list = extract_words(text)
+        for word in word_list:
+            if word not in dictionary and word not in stop_word_list:
+                dictionary[word] = len(dictionary)
+    return dictionary
